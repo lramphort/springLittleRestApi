@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.util.Enumeration;
 
 @Component
 public class LoggingFilter implements Filter {
@@ -19,6 +20,16 @@ public class LoggingFilter implements Filter {
 
         // Log request information
         logger.info("Request Method: {} Request URI: {}", httpRequest.getMethod(), httpRequest.getRequestURI());
+
+        HttpServletRequest req = (HttpServletRequest) servletRequest;
+        Enumeration<String> headerNames = req.getHeaderNames();
+        System.out.println("---- Request Headers ----");
+        while (headerNames.hasMoreElements()) {
+            String headerName = headerNames.nextElement();
+            logger.info("Header: {} : {}", headerName, req.getHeader(headerName));
+        }
+        System.out.println("-------------------------");
+
 
         // Continue processing the request
         filterChain.doFilter(servletRequest, servletResponse);

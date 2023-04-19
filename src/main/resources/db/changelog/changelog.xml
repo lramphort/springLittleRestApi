@@ -138,30 +138,12 @@
             </column>
         </createTable>
     </changeSet>
-    <changeSet id="6" author="your_name">
-        <insert tableName="users">
-            <column name="id" valueNumeric="1"/>
-            <column name="first_name" value="Alice"/>
-            <column name="last_name" value="Smith"/>
-            <column name="email" value="alice.smith@example.com"/>
-            <column name="password" value="password1"/>
-            <column name="role" value="USER"/>
-            <column name="provider" value="email"/>
-            <column name="created_at" value="2023-04-18T10:00:00"/>
-            <column name="updated_at" value="2023-04-18T10:00:00"/>
-        </insert>
-        <insert tableName="users">
-            <column name="id" valueNumeric="2"/>
-            <column name="first_name" value="Bob"/>
-            <column name="last_name" value="Johnson"/>
-            <column name="email" value="bob.johnson@example.com"/>
-            <column name="password" value="password2"/>
-            <column name="role" value="USER"/>
-            <column name="provider" value="email"/>
-            <column name="created_at" value="2023-04-18T10:00:00"/>
-            <column name="updated_at" value="2023-04-18T10:00:00"/>
-        </insert>
+
+    <changeSet id="6" author="lramphort">
+        <createSequence sequenceName="user_id_seq" startValue="1" incrementBy="1"/>
+        <createSequence sequenceName="equipment_id_seq" startValue="1" incrementBy="1"/>
+        <createSequence sequenceName="notification_id_seq" startValue="1" incrementBy="1"/>
+        <createSequence sequenceName="reservation_id_seq" startValue="1" incrementBy="1"/>
+        <createSequence sequenceName="studio_id_seq" startValue="1" incrementBy="1"/>
     </changeSet>
-
-
 </databaseChangeLog>

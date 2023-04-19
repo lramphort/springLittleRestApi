@@ -24,16 +24,6 @@ public class UserController {
         return ResponseEntity.ok(users);
     }
 
-    @GetMapping("/hello")
-    public String getHello() {
-        return "Hello";
-    }
-
-    @PostMapping("/hello")
-    public String postHello() {
-        return "Hello";
-    }
-
     @GetMapping("/{id}")
     public ResponseEntity<User> getUserById(@PathVariable Long id) {
         Optional<User> user = userRepository.findById(id);
